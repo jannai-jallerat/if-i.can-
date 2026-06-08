@@ -463,6 +463,77 @@ nav.scrolled .wrap { box-shadow: 0 14px 44px -16px rgba(120,70,50,0.42); }
 /*  MÉTHODE                                                      */
 /* ============================================================= */
 .methode { padding: var(--section-y) 0; }
+/* ============================================================= */
+/*  LE DUO                                                       */
+/* ============================================================= */
+.duo { padding: var(--section-y) 0; background: var(--gris-tres-clair); }
+.duo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.duo-card {
+  background: #FFFFFF;
+  border: 1px solid var(--gris-ligne);
+  border-radius: 18px;
+  padding: 40px;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+}
+.duo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -22px rgba(40,38,30,0.18);
+  border-color: transparent;
+}
+.duo-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris-moyen);
+  display: block;
+  margin-bottom: 22px;
+}
+.duo-card-name {
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.duo-card-role {
+  font-size: 16px;
+  font-weight: 400;
+  color: #515154;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--gris-ligne);
+}
+.duo-card-desc {
+  font-size: 15.5px;
+  color: var(--texte-doux);
+  line-height: 1.6;
+}
+.duo-card-name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.duo-card-logo {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.82;
+  flex: none;
+}
+.duo-conclusion {
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  max-width: 760px;
+  margin: 60px auto 0;
+}
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -731,6 +802,8 @@ body.modal-locked { overflow: hidden; }
 [data-delay="1"] { transition-delay: 0.10s; }
 [data-delay="2"] { transition-delay: 0.20s; }
 [data-delay="3"] { transition-delay: 0.30s; }
+[data-delay="4"] { transition-delay: 0.40s; }
+[data-delay="5"] { transition-delay: 0.50s; }
 
 /* Cascade du hero — état VISIBLE par défaut, l'entrée est une animation par-dessus */
 /* (si 'loaded' n'arrive jamais, le texte reste visible : aucun risque de blocage) */
@@ -777,6 +850,8 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
   .nav-links.open .nav-cta { margin-top: 8px; }
   .demo-grid { grid-template-columns: 1fr; gap: 20px; }
   .steps { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .duo-grid { grid-template-columns: 1fr; }
+  .duo-card { padding: 28px; }
   .pourqui-grid { grid-template-columns: 1fr; gap: 36px; }
   .hero-actions, .cta-actions { gap: 22px; flex-direction: column; align-items: center; }
 }
@@ -801,6 +876,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
     <div class="nav-links" id="navLinks">
       <a href="#demos" class="link">Démos</a>
       <a href="#methode" class="link">Méthode</a>
+      <a href="#duo" class="link">Qui sommes-nous</a>
       <a href="#manifeste" class="link">Manifeste</a>
       <a href="#contact" class="link">Contact</a>
       <a href="#contact" class="nav-cta">Démarrer un projet</a>
@@ -822,7 +898,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
   <div class="hero-inner">
     <p class="eyebrow hero-anim">Architectes d'apprentissage interactif</p>
     <h1 class="hero-anim"><span class="top">Apprendre. Mais</span><span class="bottom">autrement.</span></h1>
-    <p class="hero-sub hero-anim">Des supports de formation interactifs pour le secteur public. Vos équipes ne subissent plus. Elles vivent, choisissent, retiennent.</p>
+    <p class="hero-sub hero-anim">Le duo qui conçoit des supports de formation interactifs pour vôtre secteur.</p>
     <div class="hero-actions hero-anim">
       <a href="#demos" class="arrow-link">Découvrir les démos <span class="arr">→</span></a>
       <a href="#contact" class="arrow-link">Échangeons sur votre projet <span class="arr">→</span></a>
@@ -836,7 +912,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
 <section class="constat" data-screen-label="Constat">
   <div class="wrap">
     <p class="big reveal" data-anim="zoom">Les diapos s'oublient.<br /><span class="serif">Les expériences marquent.</span></p>
-    <p class="reveal" data-delay="1">On retient 10&nbsp;% de ce qu'on lit. 90&nbsp;% de ce qu'on vit. Chaque support que je conçois pose une seule question&nbsp;: et si apprendre devenait le moment le plus attendu de la semaine&nbsp;?</p>
+    <p class="reveal" data-delay="1">La recherche en pédagogie est claire : on retient bien mieux ce qu'on expérimente que ce qu'on lit.</p>
   </div>
 </section>
 
@@ -854,14 +930,14 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
     <div class="demo-grid">
 
       <!-- Démo 1 — L'escalade -->
-      <a href="https://jannai-jallerat.github.io/If_i_can_escalade/" data-tech="Twine" class="card reveal" data-anim="left">
+      <a href="https://myrmicode.github.io/If_i_can_escalade/" data-tech="Twine" class="card reveal" data-anim="left">
         <div class="card-art">
           <div class="art-bg" aria-hidden="true">
             <div class="aqua" style="width:200px;height:200px;top:-30px;left:-20px;background:radial-gradient(circle,var(--aqua-vert),transparent 68%);"></div>
             <div class="aqua" style="width:170px;height:170px;bottom:-30px;right:10px;background:radial-gradient(circle,var(--aqua-bleu),transparent 68%);"></div>
             <div class="aqua" style="width:120px;height:120px;top:50px;right:80px;background:radial-gradient(circle,var(--aqua-jaune),transparent 70%);opacity:0.6;"></div>
           </div>
-          <image-slot id="demo-escalade" class="art-slot" shape="rect" fit="cover" placeholder="Glissez un visuel de « L'escalade »"></image-slot>
+          <image-slot id="demo-escalade" class="art-slot" shape="rect" fit="cover" src="media/senario_%C3%A0_embranchements.png" placeholder="Glissez un visuel de « L'escalade »"></image-slot>
         </div>
         <div class="card-body">
           <h3 class="format"><span class="ico">🌳</span> Scénario à embranchements</h3>
@@ -882,7 +958,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
             <div class="aqua" style="width:170px;height:170px;bottom:-30px;left:0;background:radial-gradient(circle,var(--aqua-peche),transparent 68%);"></div>
             <div class="aqua" style="width:120px;height:120px;top:40px;left:90px;background:radial-gradient(circle,var(--aqua-rose),transparent 70%);opacity:0.55;"></div>
           </div>
-          <image-slot id="demo-maxime" class="art-slot" shape="rect" fit="cover" placeholder="Glissez un visuel de « Fuite chez Maxime »"></image-slot>
+          <image-slot id="demo-maxime" class="art-slot" shape="rect" fit="cover" src="media/escape_game_pedagogique.png" placeholder="Glissez un visuel de « Fuite chez Maxime »"></image-slot>
         </div>
         <div class="card-body">
           <h3 class="format"><span class="ico">🔐</span> Escape game pédagogique</h3>
@@ -896,14 +972,14 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
       </a>
 
       <!-- Démo 3 — L'accueil difficile -->
-      <a href="media/accueil-difficile.mp4" data-video="media/accueil-difficile.mp4" data-tech="Vidéo" class="card reveal" data-anim="left">
+      <a href="media/video_formation.mp4" data-video="media/video_formation.mp4" data-tech="Vidéo" class="card reveal" data-anim="left">
         <div class="card-art">
           <div class="art-bg" aria-hidden="true">
             <div class="aqua" style="width:200px;height:200px;top:-20px;left:10px;background:radial-gradient(circle,var(--aqua-rose),transparent 68%);"></div>
             <div class="aqua" style="width:160px;height:160px;bottom:-30px;right:-10px;background:radial-gradient(circle,var(--aqua-peche),transparent 68%);"></div>
             <div class="aqua" style="width:120px;height:120px;top:60px;right:60px;background:radial-gradient(circle,var(--aqua-violet),transparent 70%);opacity:0.5;"></div>
           </div>
-          <image-slot id="demo-accueil" class="art-slot" shape="rect" fit="cover" placeholder="Glissez un visuel de « L'accueil difficile »"></image-slot>
+          <image-slot id="demo-accueil" class="art-slot" shape="rect" fit="cover" src="media/video_formation.png" placeholder="Glissez un visuel de « L'accueil difficile »"></image-slot>
         </div>
         <div class="card-body">
           <h3 class="format"><span class="ico">🎬</span> Vidéo de formation</h3>
@@ -925,7 +1001,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
             <div class="aqua" style="width:170px;height:170px;bottom:-30px;left:-10px;background:radial-gradient(circle,var(--aqua-violet),transparent 68%);"></div>
             <div class="aqua" style="width:120px;height:120px;top:50px;left:80px;background:radial-gradient(circle,var(--aqua-vert),transparent 70%);opacity:0.5;"></div>
           </div>
-          <image-slot id="demo-accident" class="art-slot" shape="rect" fit="cover" placeholder="Glissez un visuel de « Gérer un accident »"></image-slot>
+          <image-slot id="demo-accident" class="art-slot" shape="rect" fit="cover" src="media/simulation_interactive.png" placeholder="Glissez un visuel de « Gérer un accident »"></image-slot>
         </div>
         <div class="card-body">
           <h3 class="format"><span class="ico">🚨</span> Simulation interactive</h3>
@@ -961,13 +1037,44 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
 </section>
 
 <!-- ============================================================= -->
+<!--  LE DUO                                                       -->
+<!-- ============================================================= -->
+<section class="duo tint" id="duo" data-screen-label="Le duo" style="--blend-top: rgba(182,224,184,0.28); --blend-bottom: rgba(205,182,230,0.28);">
+  <div class="wrap">
+    <div class="sec-head reveal" data-anim="rise">
+      <p class="eyebrow">L'ÉQUIPE DERRIÈRE IF(I.CAN)</p>
+      <h2>Un <span class="serif">duo</span>. Deux expertises. Une promesse.</h2>
+      <p class="lead">if(i.can), c'est la rencontre de deux savoir-faire complémentaires. La pédagogie qui a fait ses preuves, et le numérique qui la met en mouvement.</p>
+    </div>
+    <div class="duo-grid">
+      <div class="duo-card reveal" data-anim="left">
+        <span class="duo-card-label">— PÉDAGOGIE</span>
+        <div class="duo-card-name-row">
+          <div class="duo-card-name">David Segura</div>
+          <img src="media/logo-seguraformation.png" alt="Segura Formation" class="duo-card-logo" />
+        </div>
+        <div class="duo-card-role">Formateur &amp; concepteur pédagogique</div>
+        <p class="duo-card-desc">Plus de 15 ans d'expérience en formation, dont plusieurs années à concevoir des parcours pour une école du service public. Il connaît de l'intérieur les enjeux, les contraintes et les attentes des collectivités.</p>
+      </div>
+      <div class="duo-card reveal" data-anim="right" data-delay="2">
+        <span class="duo-card-label">— CONCEPTION NUMÉRIQUE</span>
+        <div class="duo-card-name">Jannaï Jallerat</div>
+        <div class="duo-card-role">Architecte d'expériences interactives</div>
+        <p class="duo-card-desc">Expert en conception de supports numériques&nbsp;: escape games, scénarios à embranchements, vidéos formation IA, modules gamifiés. Il transforme le contenu pédagogique en expérience vivante.</p>
+      </div>
+    </div>
+    <p class="duo-conclusion reveal" data-delay="5">Le résultat&nbsp;: des supports <span class="serif">adaptés</span>, professionnels, qui respectent autant la rigueur pédagogique que les codes du numérique moderne.</p>
+  </div>
+</section>
+
+<!-- ============================================================= -->
 <!--  POUR QUI                                                     -->
 <!-- ============================================================= -->
 <section class="pourqui tint" data-screen-label="Pour qui" style="--blend-top: rgba(213,197,232,0.30); --blend-bottom: rgba(255,203,164,0.30);">
   <div class="wrap pourqui-grid">
     <div class="reveal" data-anim="left">
       <p class="eyebrow">Positionnement</p>
-      <h2 style="font-weight:700;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-0.025em;margin:18px 0 24px;">Conçu <span class="serif" style="font-weight:400;">pour</span> le secteur public.</h2>
+      <h2 style="font-weight:700;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-0.025em;margin:18px 0 24px;">Conçu <span class="serif" style="font-weight:400;">pour</span> votre secteur.</h2>
       <p class="body">if(i.can) accompagne les collectivités, hôpitaux, agences publiques et établissements de l'État dans la conception de formations interactives. Sujets de prédilection&nbsp;: déontologie, RGPD, relation administré, management public, transition.</p>
     </div>
     <div class="cibles reveal" data-anim="right" data-delay="1">
@@ -992,7 +1099,7 @@ body.loaded .hero h1 .serif { animation: serifRise 0.8s var(--ease) 0.5s backwar
   <div class="wrap">
     <blockquote class="quote reveal" data-anim="veil">« Une formation interactive bien conçue n'est pas un luxe. C'est ce qui fait le lien entre un organisme qui sait, et une équipe qui agit. »</blockquote>
     <div class="sig reveal" data-anim="zoom" data-delay="1">
-      <div class="name">Jannaï</div>
+      <div class="name">Jannaï Jallerat</div>
       <div class="role">Fondateur d'if(i.can)</div>
     </div>
   </div>
